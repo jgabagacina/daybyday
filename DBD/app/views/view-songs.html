@@ -1,0 +1,26 @@
+<div class="main">
+    <div class="main-header">
+        <h1>{{song.Title}}</h1>
+        <h2>{{song.Author}}</h2>
+    </div>
+    <div class="song-lines" ng-repeat="slide in slides">
+    	<strong class="song-part">{{getPartName(slide.PartID)}}</strong>
+ 
+    	<p>{{slide.Content}}</p>
+    </div>
+   
+</div>
+<style type="text/css">
+	.song-lines{
+		text-align: center;
+		padding-bottom: 20px;
+		font-size: 25px;
+	}
+
+	.song-lines p{
+		margin-top: 0;
+		margin-bottom: 0;
+		font-family: 'Open Sans';
+
+	}
+</style>

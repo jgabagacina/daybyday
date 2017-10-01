@@ -1,0 +1,23 @@
+<div class="form-container">
+    
+    <div class="form-modal">
+        <div class="form-wrapper">
+            <div class="form-label">
+                <label>Part<span class="required">*</span></label>
+            </div>
+            <div class="form-input">
+                <select ng-model="dataForm.Part">
+                    <option ng-repeat="Part in Parts" value="{{Part.PartID}}">{{Part.PartName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-wrapper form-textarea">
+            <div class="form-label">
+                <label>Slide {{slideCount+1}}<span class="required">*</span></label>
+            </div>
+            <div class="form-input">
+                <textarea ng-model="dataForm.Content"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

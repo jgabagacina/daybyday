@@ -1,0 +1,43 @@
+<div class="form-container">
+    <div class="form-modal">
+        <div class="form-wrapper">
+            <div class="form-label">
+                <label>Title<span class="required">*</span></label>
+            </div>
+            <div class="form-input">
+                <input type="text" ng-model="dataForm.Title">
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <div class="form-label">
+                <label>Author<span class="required">*</label>
+            </div>
+            <div class="form-input">
+                <input type="text" ng-model="dataForm.Artist">
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <div class="form-label">
+                <label>Genre<span class="required">*</span></label>
+            </div>
+            <div class="form-input">
+                <select ng-model="dataForm.Genre">
+                    <option value="Praise">Praise</option>
+                    <option value="Worship">Worship</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <div class="form-label">
+                <label>Language<span class="required">*</span></label>
+            </div>
+            <div class="form-input">
+                <select ng-model="dataForm.Language">
+                    <option value="English">English</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

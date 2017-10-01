@@ -1,0 +1,89 @@
+<multi-step-container steps="steps" class="simple-prev-next">
+    <div class="close-container">
+        <a ng-click="closeModal('custom-modal-1');$previousStep()" ng-if="!submitted">
+                    <span class="symbol symbol-close">+</span>
+                </a>
+    </div>
+    <div class="preloader" ng-if="submitted">
+    </div>
+    <div class="main-header main-header-modal">
+        <div class="main-header-modal-text">
+            <h1>{{modalTitle}} Songs</h1>
+        </div>
+        <div id="status-buttons" class="text-center">
+            <a ng-click-active>
+                <div ng-class="{'active': $getActiveStep().title=='Details'}">
+                    <span>1</span>
+                </div>
+                Details
+            </a>
+            <a ng-click-active>
+                <div ng-class="{'active': $getActiveStep().title=='Slides'}">
+                    <span>2</span>
+                </div>
+                Slides
+            </a>
+            <!-- <a ui-sref-active="active" ui-sref=".payment"><span>3</span> Submi</a> -->
+        </div>
+    </div>
+    <!--   <div class="modal-slides-up" ng-if="$getActiveStep().title=='Slides' && slideCount>0" ng-click="backSlide()">
+                <div class="slides-up">
+                    <div class="slides-up-container">
+                        <span>></span>
+                    </div>
+                </div>
+            </div> -->
+    <div class="modal-slides slides-left" ng-if="$getActiveStep().title=='Slides' && slideCount>0 && back" ng-click="backSlide()">
+        <div class="slides">
+            <div class="slides-container">
+                <span><</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-slides slides-right" ng-if="$getActiveStep().title=='Slides' && next" ng-click="nextSlide()">
+        <div class="slides">
+            <div class="slides-container">
+                <span>></span>
+            </div>
+        </div>
+    </div>
+    <form ng-submit="test()">
+        <main step-container></main>
+        <!--  <header>
+                    <button ng-disabled="$isFirst()" class="btn btn-default" ng-click="$previousStep()">
+                        <span class="fa fa-chevron-left"></span> Previous
+                    </button>
+                    <strong ng-bind-template="{{$getActiveIndex()}}. {{$getActiveStep().title}}"></strong>
+                    <button ng-disabled="$isLast()" class="btn btn-default" ng-click="$nextStep();test();">
+                        Next
+                        <span class="fa fa-chevron-right"></span>
+                    </button>
+                </header> -->
+        <!-- <div class="modal-slides-down" ng-if="$getActiveStep().title=='Slides'" ng-click="nextSlide()">
+                    <div class="slides-down">
+                        <div class="slides-down-container">
+                            <span>></span>
+                        </div>
+                    </div>
+                </div> -->
+        <div class="form-modal-footer">
+            <div class="footer-container">
+                <button ng-disabled="$isFirst()" class="btn btn-danger" ng-click="$previousStep()">
+                    <span class="fa fa-chevron-left" id="goBack"></span> Back
+                </button>
+                <button ng-if="!$isLast()" class="btn btn-primary" ng-click="$nextStep();" ng-disabled="!tabDetails">
+                    Next
+                    <span class="fa fa-chevron-right"></span>
+                </button>
+                <button ng-if="$isLast() && modalTitle == 'Add'" class="btn btn-primary" ng-click="$previousStep();Submit();" ng-disabled="!check">
+                    Submit
+                    <span class="fa fa-chevron-right"></span>
+                </button>
+                <button ng-if="$isLast() && modalTitle === 'Edit'" class="btn btn-primary" ng-click="$previousStep();EditSubmit();" ng-disabled="!check" >
+                    Submit
+                    <span class="fa fa-chevron-right"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</multi-step-container>

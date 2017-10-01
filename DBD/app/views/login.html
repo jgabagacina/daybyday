@@ -1,0 +1,16 @@
+<div ng-if="!isLoggedIn">
+	<div class="center">
+		<div class="preloader" ng-hide="loading"><!-- <img src="public/images/logogif.gif"> --></div>
+		<div class="img-container">
+			<img src="public/images/logo2.png">
+		</div>
+		<form class="ajaxForm" onsubmit="return false;">
+			<div class="form">
+				<input type="text" ng-model="$parent.UserName" placeholder="Username">
+				<input type="password" ng-model="$parent.Password" placeholder="Password">
+				<button type="submit" ng-click="logIn()">Log in</button>
+			</div>
+		</form>
+		
+	</div>
+</div>

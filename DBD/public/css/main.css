@@ -1,0 +1,852 @@
+@font-face {
+    font-family: 'CODE Bold';
+    src: url('fonts/CODEBold.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('fonts/OpenSans-Regular.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+.center {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    /*it can be fixed too*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    /*background-color: #a4d7ff;*/
+    background-color: #191919;
+    /*border-radius: 20px;*/
+    box-shadow: 0 0 5px 2px rgba(29, 26, 26, .35);
+}
+
+img {
+    width: 100%;
+}
+
+.img-container {
+    width: 190px;
+    margin: auto;
+    position: relative;
+    top: 15px;
+}
+
+.form {
+    width: 100%;
+    position: relative;
+    left: 73px;
+    top: 30px;
+}
+
+.form button {
+    color: #5d5d5d;
+    margin-top: 10px;
+    /* background-color: #428bca;*/
+    background-color: #ffe530;
+    /*border-color: #357ebd;*/
+    border-color: #dec728;
+    border-radius: 4px;
+    font-family: 'CODE Bold';
+}
+
+.form button:hover {
+    /*background-color: #3276b1;*/
+    background-color: #e0c928;
+    /*border-color: #285e8e;*/
+    border-color: #f1d61f;
+    cursor: pointer;
+}
+
+.form input,
+.form button {
+    display: inline-block;
+    width: 250px;
+    margin-bottom: -1px;
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.preloader {
+    margin: auto;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background: url('../images/logogif.gif') no-repeat 50% 50%;
+    background-size: 54%;
+    background-color: rgba(93, 93, 93, 0.68);
+}
+
+.preloader img {
+    width: 54%;
+    position: relative;
+    top: 93px;
+    left: 87px;
+}
+
+.sidebar {
+    background-color: #191919;
+    width: 255px;
+    height: 100%;
+    position: fixed;
+    margin-left: -8px;
+    margin-top: -8px;
+    z-index: 1;
+}
+
+.side-greeting {
+    margin-left: 35px;
+    color: white;
+    font-family: 'CODE Bold';
+    font-size: 22px;
+    padding-bottom: 40px;
+}
+
+.side-li {
+    list-style: none;
+    margin-left: -7px;
+    padding-bottom: 15px;
+}
+
+.side-li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'CODE Bold';
+    font-size: 22px;
+}
+
+.side-li a:hover {
+    color: #a2a2a2;
+}
+
+
+.side-logo {
+    width: 80%;
+    padding-left: 26px;
+}
+
+.main {
+    padding-left: 300px;
+    margin-right: 111px;
+    position: absolute;
+    max-width: 75%;
+    width: 1000px;
+}
+
+.main-header {
+    font-family: 'CODE Bold';
+    text-align: center;
+    font-size: 20px;
+}
+
+
+
+#songTable {
+    font-family: 'Open Sans';
+    border-spacing: 0;
+    width: 100%;
+}
+
+#songTable td {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#songTable td a {
+
+    color: #1a1a1a;
+}
+
+#songTable th {
+    background-color: #1a1a1a;
+    color: white;
+    border-left: 1px solid #1a1a1a;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+#songTable tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+
+#songTable td {
+    border-bottom: 1px solid #1a1a1a;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#songTable tr td:first-child {
+    border-left: 1px solid #1a1a1a;
+}
+
+#songTable tr td:last-child {
+    border-right: 1px solid #1a1a1a;
+}
+
+
+#songTable_filter {
+    position: relative;
+    left: 73.4%;
+    padding-bottom: 10px;
+    font-family: 'CODE Bold';
+    width: 27%;
+}
+
+#songTable_filter input {
+    padding: 8px 5px 8px 5px;
+    font-size: 16px;
+}
+
+
+
+#songTable_pagination {
+    padding-top: 10px;
+    position: absolute;
+    left: 83.2%;
+    font-family: 'CODE Bold';
+    width: 18%;
+}
+
+#songTable_pagination span {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.actions-td {
+    width: 21%;
+}
+
+.actions-td .btn {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.btn {
+    width: 110px;
+    padding: 10px 5px 10px 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    user-select: none;
+    outline: none;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    margin: 0em;
+    border-width: 2px;
+    border-style: outset;
+    box-sizing: border-box;
+    align-items: flex-start;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13.3333px;
+}
+
+
+.btn-edit {
+    background-color: #57b157;
+    color: white !important;
+    border-color: #57b157;
+}
+
+.btn-edit:hover {
+    background-color: #499949;
+    border-color: #499949;
+}
+
+.btn-primary {
+    background-color: #3d83c1;
+    border-color: #3d83c1;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2e6a9f;
+    border-color: #2e6a9f;
+}
+
+.btn-primary:disabled {
+    background-color: #34485a;
+    border-color: #34485a;
+    color: #b1b1b1;
+}
+
+.btn-danger {
+    background-color: #ee4d4d;
+    border-color: #ee4d4d;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #cb3c3c;
+    border-color: #cb3c3c;
+}
+
+.btn-danger:disabled {
+    background-color: #852828;
+    border-color: #852828;
+    color: #b1b1b1;
+}
+
+.btn-pagination {
+    width: 70px;
+}
+
+ng-cloak {
+    display: none;
+}
+
+.no-data {
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 34px;
+    padding-bottom: 34px;
+    font-family: 'CODE Bold';
+    border-bottom: #1b1b1b 1px solid;
+    border-left: #1b1b1b 1px solid;
+    border-right: #1b1b1b 1px solid;
+    background-color: #e6e6e6;
+}
+
+.add-container,
+.close-container {
+    position: relative;
+    font-family: 'CODE Bold';
+    width: 8.6%;
+    top: 27px;
+    text-decoration: none;
+    user-select: none;
+}
+
+
+.close-container {
+    top: -3px;
+    z-index: 12;
+}
+
+.add-container a,
+.close-container a {
+    text-decoration: none;
+}
+
+.add-container:hover .text {
+    color: #6f6f6f;
+    cursor: pointer;
+}
+
+.add-container:hover .symbol {
+    background-color: #6f6f6f;
+    cursor: pointer;
+}
+
+.add-container .symbol,
+.close-container .symbol {
+    font-family: Arial;
+    font-weight: bolder;
+    font-size: 30px;
+    position: absolute;
+    top: -66.3%;
+    background-color: #57b157;
+    color: white;
+
+    text-align: center;
+    height: 37px;
+    width: 37px;
+    font-size: 40px;
+    border-radius: 22px;
+}
+
+.symbol-close {
+    background: #f58a8a !important;
+    /*transform: rotate(46deg) translate(355px, -453px);*/
+    transform: rotate(46deg) translate(302px, -405px);
+    z-index: 1;
+}
+
+.close-container:hover .symbol-close {
+    background-color: #ce5353 !important;
+    cursor: pointer;
+}
+
+.add-container .text {
+    position: relative;
+    left: 44px;
+    color: #1a1a1a;
+}
+
+.main-header-modal {
+    background-color: #191919;
+    color: white;
+    /*width: 616px;*/
+    width: 540px;
+    height: 170px;
+    position: relative;
+    top: -47px;
+    right: 20px;
+    z-index: 11;
+}
+
+.main-header-modal-text {
+    position: relative;
+    top: 36px;
+    padding-bottom: 20px;
+}
+
+
+
+.text-center {
+    text-align: center;
+}
+
+#status-buttons {
+    position: relative;
+    left: 1px;
+}
+
+#status-buttons a {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#status-buttons div {
+    background-color: #ffffff;
+    display: block;
+    height: 40px;
+    margin: 0 auto;
+    /*padding-top: 5px;*/
+    width: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#status-buttons .active {
+    background-color: #ffed78;
+}
+
+#status-buttons div span {
+    position: relative;
+    margin: auto;
+    top: 5px;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    color: #1a1a1a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODAL STYLES
+-------------------------------*/
+
+modal {
+    /* modals are hidden by default */
+    display: none;
+}
+
+modal .modal {
+    /* modal container fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* z-index must be higher than .modal-background */
+    z-index: 1000;
+    /* enables scrolling for tall modals */
+    overflow: auto;
+}
+
+modal .modal .modal-body {
+    padding: 20px;
+    background: #fff;
+    /* margin exposes part of the modal background */
+    /*height: 85%;*/
+    height: 618px;
+    /*width: 40%;*/
+    /*width: 576px;*/
+    width: 500px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+modal .modal-background {
+    /* modal background fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* semi-transparent black  */
+    background-color: #000;
+    opacity: 0.75;
+    /* z-index must be below .modal and above everything else  */
+    z-index: 900;
+}
+
+body.modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+
+
+.required {
+    color: #f58a8a;
+}
+
+.form-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    width: 520px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    bottom: 47px;
+}
+
+.form-modal {
+    width: 100%;
+    position: absolute;
+    left: 15%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* margin: auto;*/
+    margin-top: 30px;
+}
+
+.form-wrapper {
+    font-family: 'Open Sans';
+    position: relative;
+    width: 100%;
+    /*height: 100%;*/
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.form-wrapper div {
+    display: inline-block;
+    width: 110px;
+    margin-right: 12px;
+}
+
+.form-label {
+    font-size: 23px;
+    width: 91px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+
+.form-input input[type="text"],
+.form-input select {
+    vertical-align: middle;
+}
+
+.form-input input[type="text"] {
+    /*width: 236px;
+    height: 33px;*/
+    font-size: 16px;
+    padding: 8px 5px 8px 5px;
+    width: 191px;
+}
+
+.form-input select {
+    width: 205px;
+    font-size: 16px;
+    height: 37px;
+    background-color: transparent;
+}
+
+.form-input textarea {
+    width: 325px;
+    height: 135px;
+    border: 1px solid initial;
+    resize: none;
+}
+
+.form-textarea div {
+    display: block !important;
+}
+
+.form-modal-footer {
+    position: absolute;
+    right: 0;
+    width: 540px;
+    height: 138px;
+    background: #1a1a1a;
+    bottom: 0;
+    z-index: 10;
+}
+
+.form-modal-footer .footer-container {
+    position: relative;
+    left: 160px;
+    top: 45px;
+}
+
+.footer-container button {
+    display: inline-block;
+}
+
+.slides-left {
+    left: 0;
+}
+
+.slides-right {
+    right: 0;
+}
+
+.modal-slides {
+    position: absolute;
+    z-index: 10;
+    top: 33px;
+    margin: auto;
+    bottom: 0;
+    height: 351px;
+    cursor: pointer;
+    width: 54px;
+}
+
+.modal-slides:hover .slides {
+    background-color: rgba(42, 42, 42, 0.32);
+}
+
+.slides-container {
+    width: 54px;
+
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    vertical-align: middle;
+    top: 155px;
+}
+
+
+.slides {
+    width: inherit;
+    height: inherit;
+    background-color: rgba(198, 198, 198, 0.32);
+    /*display: none;*/
+}
+
+.slides-container span {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+
+    .center {
+        width: 360px;
+        height: 360px;
+    }
+
+    .img-container {
+        width: 165px;
+    }
+    form {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        bottom: 169px;
+    }
+    .form {
+        position: absolute;
+        left: 70px;
+        top: 196px;
+    }
+
+    .form input,
+    .form button {
+        width: 220px;
+    }
+
+    .main {
+        width: 57%;
+        padding-left: 272px;
+    }
+
+    .main-header {
+        font-size: 14px;
+        margin-bottom: -21px;
+    }
+
+    #songTable th,
+    #songTable td {
+        font-size: 12px;
+    }
+
+    #songTable td {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    #songTable_filter {
+        left: 60%;
+        width: 41%;
+        font-size: 12px;
+    }
+    #songTable_filter input {
+        padding: 5px 3px 5px 3px;
+        font-size: 12px;
+        width: 123px;
+    }
+
+
+
+    #songTable_pagination {
+        width: 37%;
+        left: 66.7%;
+        margin-bottom: 20px;
+    }
+
+    #songTable_pagination span {
+        font-size: 14px;
+    }
+    .no-data {
+        font-size: 15.5px;
+    }
+    .side-logo {
+        width: 64%;
+        padding-left: 39px;
+    }
+    .sidebar {
+        width: 220px;
+    }
+    .side-greeting {
+        margin-left: 41px;
+        font-size: 17px;
+    }
+    .side-li {
+        margin-left: 1px;
+        padding-bottom: 11px;
+    }
+
+
+    .side-li a {
+        font-size: 17px;
+    }
+    .btn {
+        width: 88px;
+        font-size: 10px;
+    }
+    .add-container {
+        width: 25.6%;
+        font-size: 12px;
+        top: 21px;
+    }
+
+    .add-container .symbol {
+        height: 20px;
+        width: 20px;
+        font-size: 22px;
+        top: -30%;
+    }
+    .add-container .text {
+        left: 23px;
+    }
+
+    modal .modal {
+        overflow: hidden;
+    }
+    modal .modal .modal-body {
+        width: 440px;
+        height: 80%;
+    }
+
+
+    .main-header-modal {
+        width: 480px;
+        height: 110px;
+    }
+
+    .main-header-modal-text {
+        top: 20px;
+        padding-bottom: 5px;
+    }
+
+    .symbol-close {
+        font-size: 30px !important;
+        width: 28px !important;
+        height: 28px !important;
+        transform: rotate(46deg) translate(266px, -356px);
+    }
+    #status-buttons div {
+        width: 25px;
+        height: 25px;
+    }
+    #status-buttons div span {
+        top: 4px;
+        font-size: 18px;
+    }
+
+    .form-modal {
+        overflow-x: hidden;
+    }
+
+    .form-modal-footer {
+        right: -21px;
+        width: 481px;
+        bottom: -81px;
+    }
+
+    .form-modal-footer .footer-container {
+        width: 181px;
+    }
+
+    .form-container {
+        top: 118px;
+        left: -20px;
+        width: 480px;
+    }
+
+    .modal-slides {
+        width: 42px;
+        top: -33px;
+    }
+
+    .slides-container {
+        width: 42px;
+    }
+}

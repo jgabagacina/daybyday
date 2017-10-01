@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="PPTGenerator">
+
+<head>
+    <title>Day By Day | Line Up Generator</title>
+    <link rel="icon" href="public/dbd2.ico">
+    <link rel="stylesheet" type="text/css" href="public/css/main.css">
+    <link rel="stylesheet" type="text/css" href="public/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="public/ng-alertify/dist/ng-alertify.css">
+</head>
+
+<body ng-cloak>
+    <side-bar></side-bar>
+    <div ng-view></div>
+
+    <script type="text/javascript" src="public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="public/js/PptxGenJS/libs/jszip.min.js"></script>
+    <script type="text/javascript" src="public/js/PptxGenJS/dist/pptxgen.js"></script>
+    <script type="text/javascript" src="public/js/angular.js"></script>
+    <!-- AngularJS Dependencies -->
+    <script type="text/javascript" src="public/js/angular-route.js"></script>
+    <script type="text/javascript" src="public/js/angular-resource.js"></script>
+    <script type="text/javascript" src="public/js/angular-cookies.js"></script>
+    <script type="text/javascript" src="public/js/angular-animate.js"></script>
+    <script type="text/javascript" src="public/ng-alertify/dist/ng-alertify.js"></script>
+    <script type="text/javascript" src="public/angular-multi-step-form/dist/browser/angular-multi-step-form.js"></script>
+    <!-- <script type="text/javascript" src="public/js/angular-ui-router.js"></script> -->
+    <script type="text/javascript" src="public/js/underscore-min.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <!-- Controllers -->
+    <script type="text/javascript" src="app/controllers/Authentication.js"></script>
+    <script type="text/javascript" src="app/controllers/Songs.js"></script>
+    <script type="text/javascript" src="app/controllers/Main.js"></script>
+    <!-- Factories -->
+    <script type="text/javascript" src="app/services/SessionService.js"></script>
+    <script type="text/javascript" src="app/services/SongsService.js"></script>
+    <script type="text/javascript" src="app/services/ModalService.js"></script>
+    <!-- Directives -->
+    <script type="text/javascript" src="app/directives/sideBar.js"></script>
+    <script type="text/javascript" src="app/directives/songsForm.js"></script>
+    <script type="text/javascript" src="app/directives/modal.js"></script>
+
+</body>
+
+</html>
