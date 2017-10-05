@@ -1,12 +1,21 @@
 (function() {
-    PPTGenerator.controller('Songs', ['$scope', '$filter', 'SongsService', '$location', '$routeParams', 'permission', 'Alertify', 'ModalService',
-        function($scope, $filter, SongsService, $location, $routeParams, permission, Alertify, ModalService) {
+    PPTGenerator.controller('Songs', [
+        '$scope', 
+        '$filter', 
+        'SongsService', 
+        '$location', 
+        '$routeParams', 
+        '$cookies', 
+        'permission', 
+        'Alertify', 
+        'ModalService',
+        function($scope, $filter, SongsService, $location, $routeParams, $cookies, permission, Alertify, ModalService) {
             if (!permission) {
                 $location.path('/');
             }
             //$scope.currentPage = 0;
 
-            $scope.pageSize = 5;
+            $scope.pageSize = 10;
             $scope.songFilter = '';
             $scope.songs = [];
             var totalCount = 0;
@@ -401,15 +410,148 @@
                 );
 
 
-
-
-
-
-
-
             }
 
 
+            $scope.lineUpSongs = [];
+            $scope.checkLineUp = function(id){
+                if(typeof $cookies.getObject('lineUp') !== 'undefined'){
+                    var array = $cookies.getObject('lineUp');
+
+                    for(var x in array){
+                        if(array[x] == id)
+                            return true;
+                    }
+                    return false;
+                }else{
+                    return false;
+                }
+            }
+
+            $scope.addLineUp = function(id){
+                    
+                if(typeof $cookies.getObject('lineUp') !== 'undefined'){
+                    var array = $cookies.getObject('lineUp');
+                    
+                    array.push(id);
+                    $cookies.putObject('lineUp', array); 
+                }else{
+                    var array = [id];
+                    $cookies.putObject('lineUp', array); 
+                }
+        
+            }
+
+            $scope.removeLineUp = function(id, index=''){
+                if(typeof $cookies.getObject('lineUp') !== 'undefined'){
+                    var array = $cookies.getObject('lineUp');
+                    for(var x in array){
+                        if(array[x] == id){
+                            delete array[x];
+                            $cookies.putObject('lineUp', array); 
+                            console.log($scope.lineUpSongs);
+                            if(index!==''){
+    
+                                $scope.lineUpSongs.splice( index, 1 );
+
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+
+           
+            if(typeof $cookies.getObject('lineUp') !== 'undefined'){
+                var array = $cookies.getObject('lineUp');
+                for(var x in array){
+                    console.log(array[x]);
+                    SongsService.getSongs(array[x]).then(
+                        function(res) {
+                            var song = res.data.song;
+                            $scope.lineUpSongs.push({
+                               Title:song.Title,
+                               Artist:song.Artist,
+                               Genre:song.Genre,
+                               SongID:song.SongID
+                            });
+                        },
+                        function() {
+                            Alertify.error('Error! Something went wrong with the server!');
+                        }
+                    );
+                }
+            }
+
+
+            $scope.generateSlides = function() {
+                var pptx = new PptxGenJS();
+                var title = '';
+                var slides = '';
+                var array = $cookies.getObject('lineUp');
+                var last =array.length;
+                var count = 1;
+                var generate = true;
+                pptx.setLayout('LAYOUT_4x3');
+                // Add a Slide, then add objects
+                var slide = pptx.addNewSlide();
+                slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+                for(var x in array){
+                    
+                  
+                    SongsService.getSongs(array[x]).then(
+                        function(res) {
+                            title = res.data.song.Title.toUpperCase();
+                            res.data.slides.forEach(function(data) {
+                               
+                                var shadowOpts = { type: 'outer', color: '000000', blur: 4, offset: 3, angle: 45, opacity: 0.6 };
+                                pptx.setLayout('LAYOUT_4x3');
+                                // Add a Slide, then add objects
+                                var slide = pptx.addNewSlide();
+
+                                slide.addImage({ path: 'public/images/Picture1.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+                                slide.addText(data.Content.toUpperCase(), { x: 0.52, y: 0.42, w: 9.06, h: 3.67, font_size: 40, font_face: 'Gill Sans MT', color: 'ffffff', bold: true, align: 'center', valign: "top", shadow: shadowOpts, glow: { color: '000000', opacity: 30, size: 8 } });
+
+                                slide.addText(title, { x: 2.33, y: 6.25, font_size: 28, font_face: 'Arial', color: 'ffffff', italic: true, align: 'right' });
+
+                                count++;
+                            });
+
+                            pptx.setLayout('LAYOUT_4x3');
+                            // Add a Slide, then add objects
+                            var slide = pptx.addNewSlide();
+                            slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+                            
+                            if(generate){
+                                var today = new Date();
+                                var dd = today.getDate();
+                                var mm = today.getMonth()+1; //January is 0!
+
+                                var yyyy = today.getFullYear();
+                                if(dd<10){
+                                    dd='0'+dd;
+                                } 
+                                if(mm<10){
+                                    mm='0'+mm;
+                                } 
+                                var today = dd+'/'+mm+'/'+yyyy;
+                                pptx.save(today);
+                                generate =false;
+                            }
+
+                                                       
+                        },
+                        function() {
+                            Alertify.error('Error! Something went wrong with the server!');
+                        }
+                    );
+
+
+                }
+                
+
+            }
 
         }
 

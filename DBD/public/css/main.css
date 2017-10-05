@@ -218,8 +218,9 @@ img {
 
 
 
-#songTable_pagination {
+#songTable_pagination { 
     padding-top: 10px;
+    padding-bottom: 40px;
     position: absolute;
     left: 83.2%;
     font-family: 'CODE Bold';
@@ -457,6 +458,7 @@ ng-cloak {
     font-size: 30px;
     color: #1a1a1a;
 }
+
 
 
 

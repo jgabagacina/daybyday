@@ -27,7 +27,9 @@
                 <td>{{song.Artist}}</td>
                 <td class="actions-td">
                     <a class="btn btn-edit" ng-click="updateButton(song.SongID);openModal('custom-modal-1','Edit')">Edit</a>
-                    <button class="btn btn-primary" ng-click="generateSlide(song.SongID)">Add to Line Up</button>
+                    <button class="btn btn-primary" ng-click="addLineUp(song.SongID)" ng-if="!checkLineUp(song.SongID)">Add to Line Up</button>
+                    <button class="btn btn-danger" ng-click="generateSlide(song.SongID)" ng-if="!checkLineUp(song.SongID)">Generate Slide</button>
+                    <button class="btn btn-danger" ng-click="removeLineUp(song.SongID)" ng-if="checkLineUp(song.SongID)">Remove</button>
                 </td>
             </tr>
         </tbody>

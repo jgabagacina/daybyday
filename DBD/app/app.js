@@ -147,6 +147,14 @@ __backendLink = "http://localhost/__backEnd/";
                         }
                     }
                 })
+                .when('/LineUp',{
+                    controller: 'Songs',
+                    templateUrl: 'app/views/lineup.html',
+                    cache: false,
+                    resolve: {
+                        permission: permission
+                    }
+                })
                 .otherwise('/');
         }
     ]);
