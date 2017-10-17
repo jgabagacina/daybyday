@@ -7,7 +7,7 @@ PPTGenerator = angular.module('PPTGenerator', [
     // 'ui.router',
     'multiStepForm'
 ]);
-__backendLink = "http://localhost/__backEnd/";
+__backendLink = window.location.origin+"/daybyday/__backEnd/";
 // (function() {
 
 //     PPTGenerator.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

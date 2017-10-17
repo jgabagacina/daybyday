@@ -524,6 +524,10 @@
                     if(count==last){
                         if(typeof $cookies.getObject('slide') !== 'undefined'){
                             var slides = $cookies.getObject('slide');
+                            
+                            pptx.setLayout('LAYOUT_4x3');
+                            var slide = pptx.addNewSlide();
+                            slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
 
                             for(var x in slides){
                                 var title = slides[x].title
@@ -546,10 +550,7 @@
                                 slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
 
                             }
-                            pptx.setLayout('LAYOUT_4x3');
-                            // Add a Slide, then add objects
-                            var slide = pptx.addNewSlide();
-                            slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+                           
 
                             
                             var today = new Date();
