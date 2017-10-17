@@ -492,63 +492,96 @@
                 var array = $cookies.getObject('lineUp');
                 var last =array.length;
                 var count = 1;
-                var generate = true;
-                pptx.setLayout('LAYOUT_4x3');
-                // Add a Slide, then add objects
-                var slide = pptx.addNewSlide();
-                slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+                var generate = false;
+                
                 for(var x in array){
-                    
-                  
                     SongsService.getSongs(array[x]).then(
                         function(res) {
-                            title = res.data.song.Title.toUpperCase();
-                            res.data.slides.forEach(function(data) {
-                               
-                                var shadowOpts = { type: 'outer', color: '000000', blur: 4, offset: 3, angle: 45, opacity: 0.6 };
-                                pptx.setLayout('LAYOUT_4x3');
-                                // Add a Slide, then add objects
-                                var slide = pptx.addNewSlide();
-
-                                slide.addImage({ path: 'public/images/Picture1.jpg', x: 0, y: 0, w: 10, h: 7.5 });
-                                slide.addText(data.Content.toUpperCase(), { x: 0.52, y: 0.42, w: 9.06, h: 3.67, font_size: 40, font_face: 'Gill Sans MT', color: 'ffffff', bold: true, align: 'center', valign: "top", shadow: shadowOpts, glow: { color: '000000', opacity: 30, size: 8 } });
-
-                                slide.addText(title, { x: 2.33, y: 6.25, font_size: 28, font_face: 'Arial', color: 'ffffff', italic: true, align: 'right' });
-
-                                count++;
-                            });
-
-                            pptx.setLayout('LAYOUT_4x3');
-                            // Add a Slide, then add objects
-                            var slide = pptx.addNewSlide();
-                            slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
                             
-                            if(generate){
-                                var today = new Date();
-                                var dd = today.getDate();
-                                var mm = today.getMonth()+1; //January is 0!
-
-                                var yyyy = today.getFullYear();
-                                if(dd<10){
-                                    dd='0'+dd;
-                                } 
-                                if(mm<10){
-                                    mm='0'+mm;
-                                } 
-                                var today = dd+'/'+mm+'/'+yyyy;
-                                pptx.save(today);
-                                generate =false;
+                            if(typeof $cookies.getObject('slide') !== 'undefined'){
+                                var array = $cookies.getObject('slide');
+                                
+                                array.push({
+                                    title:res.data.song.Title.toUpperCase(),
+                                    slides:res.data.slides
+                                });
+                                $cookies.putObject('slide', array); 
+                            }else{
+                                var array = [{
+                                    title:res.data.song.Title.toUpperCase(),
+                                    slides:res.data.slides
+                                }];
+                                $cookies.putObject('slide', array); 
                             }
-
+                            
                                                        
                         },
                         function() {
                             Alertify.error('Error! Something went wrong with the server!');
                         }
                     );
+                    count++;
+                    if(count==last){
+                        if(typeof $cookies.getObject('slide') !== 'undefined'){
+                            var slides = $cookies.getObject('slide');
 
+                            for(var x in slides){
+                                var title = slides[x].title
+                                slides[x].slides.forEach(function(data) {
+                                    var shadowOpts = { type: 'outer', color: '000000', blur: 4, offset: 3, angle: 45, opacity: 0.6 };
+                                    pptx.setLayout('LAYOUT_4x3');
+                                    // Add a Slide, then add objects
+                                    var slide = pptx.addNewSlide();
 
+                                    slide.addImage({ path: 'public/images/Picture1.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+                                    slide.addText(data.Content.toUpperCase(), { x: 0.52, y: 0.42, w: 9.06, h: 3.67, font_size: 40, font_face: 'Gill Sans MT', color: 'ffffff', bold: true, align: 'center', valign: "top", shadow: shadowOpts, glow: { color: '000000', opacity: 30, size: 8 } });
+
+                                    slide.addText(title, { x: 2.33, y: 6.25, font_size: 28, font_face: 'Arial', color: 'ffffff', italic: true, align: 'right' });
+
+                                    count++;
+                                });
+                                pptx.setLayout('LAYOUT_4x3');
+                                // Add a Slide, then add objects
+                                var slide = pptx.addNewSlide();
+                                slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+
+                            }
+                            pptx.setLayout('LAYOUT_4x3');
+                            // Add a Slide, then add objects
+                            var slide = pptx.addNewSlide();
+                            slide.addImage({ path: 'public/images/bg.jpg', x: 0, y: 0, w: 10, h: 7.5 });
+
+                            
+                            var today = new Date();
+                            var dd = today.getDate();
+                            var mm = today.getMonth()+1; //January is 0!
+
+                            var yyyy = today.getFullYear();
+                            if(dd<10){
+                                dd='0'+dd;
+                            } 
+                            if(mm<10){
+                                mm='0'+mm;
+                            } 
+                            var today = dd+'/'+mm+'/'+yyyy;
+                            pptx.save(today);
+                              
+                           
+                            
+                        }
+
+                        
+
+                    }
                 }
+
+                
+
+                            
+
+                            
+                            
+                            
                 
 
             }
